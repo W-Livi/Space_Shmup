@@ -153,4 +153,18 @@ public class Utils : MonoBehaviour {
     }
 
 
+    public static GameObject FindTaggedParent(GameObject go) {
+        if (go.tag != "Untagged") {
+            return go;
+        }
+
+        if (go.transform.parent == null) {
+            return null;
+        }
+
+        return FindTaggedParent(go.transform.parent.gameObject);
+    }
+    public static GameObject FindTaggedParent(Transform t) {
+        return FindTaggedParent(t.gameObject);
+    }
 }
