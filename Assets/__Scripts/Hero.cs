@@ -5,6 +5,8 @@ public class Hero : MonoBehaviour {
 
     static public Hero S;
 
+    public float gameRestartDelay = 2f;
+
     public float speed = 30;
     public float rollMult = -45;
     public float pitchMult = 30;
@@ -72,6 +74,7 @@ public class Hero : MonoBehaviour {
             _shieldLevel = Mathf.Min(value, 4);
             if (value < 0) {
                 Destroy(this.gameObject);
+                Main.S.DelayedRestart(gameRestartDelay);
             }
         }
     }
