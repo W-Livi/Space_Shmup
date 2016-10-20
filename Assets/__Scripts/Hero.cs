@@ -24,12 +24,14 @@ public class Hero : MonoBehaviour {
 	void Awake () {
         S = this;
         bounds = Utils.CombineBoundsOfChildren(this.gameObject);
+    }
 
+    void Start() {
         ClearWeapons();
         weapons[0].SetType(WeaponType.blaster);
     }
-	
-	void Update () {
+
+    void Update () {
         // Pull in information from the Input class
         float xAxis = Input.GetAxis("Horizontal");
         float yAxis = Input.GetAxis("Vertical");
